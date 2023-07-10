@@ -5,6 +5,7 @@ import LanguageSelection from './pages/LanguageSelection';
 import Lessons from './pages/Lessons';
 import Profile from './pages/Profile';
 import Sidebar from './components/Sidebar';
+import "./App.css";
 
 const App = () => {
   return (

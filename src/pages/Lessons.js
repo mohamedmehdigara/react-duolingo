@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Lessons = () => {
-  const [completedLessons, setCompletedLessons] = useState([1, 3]); // Example: Completed lessons IDs
+  const [completedLessons, setCompletedLessons] = useState([]);
 
   const units = [
     {
@@ -51,6 +51,14 @@ const Lessons = () => {
                   onClick={() => handleLessonClick(lesson.id)}
                 >
                   <p>{lesson.title}</p>
+                  <div className="completion-circles">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <div
+                        key={index}
+                        className={`circle ${index < completedLessons.length ? 'completed' : ''}`}
+                      />
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
