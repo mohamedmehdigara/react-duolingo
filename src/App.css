@@ -38,3 +38,41 @@
   background-color: green;
   color: white;
 }
+
+.sidebar {
+  background-color: #f8f9fa;
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.logo-container {
+  padding: 20px;
+}
+
+.logo {
+  width: 150px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.menu li {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.menu li a:hover {
+  color: #007bff;
+}
+

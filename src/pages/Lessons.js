@@ -3,11 +3,25 @@ import React, { useState } from 'react';
 const Lessons = () => {
   const [completedLessons, setCompletedLessons] = useState([1, 3]); // Example: Completed lessons IDs
 
-  const lessons = [
-    { id: 1, title: 'Lesson 1' },
-    { id: 2, title: 'Lesson 2' },
-    { id: 3, title: 'Lesson 3' },
-    // Add more lessons as needed
+  const units = [
+    {
+      id: 1,
+      title: 'Unit 1',
+      lessons: [
+        { id: 1, title: 'Lesson 1.1' },
+        { id: 2, title: 'Lesson 1.2' },
+        { id: 3, title: 'Lesson 1.3' },
+      ],
+    },
+    {
+      id: 2,
+      title: 'Unit 2',
+      lessons: [
+        { id: 4, title: 'Lesson 2.1' },
+        { id: 5, title: 'Lesson 2.2' },
+      ],
+    },
+    // Add more units and lessons as needed
   ];
 
   const isLessonCompleted = (lessonId) => {
@@ -25,14 +39,21 @@ const Lessons = () => {
   return (
     <div>
       <h1>Lessons Page</h1>
-      <div className="lessons-container">
-        {lessons.map((lesson) => (
-          <div
-            key={lesson.id}
-            className={`lesson ${isLessonCompleted(lesson.id) ? 'completed' : ''}`}
-            onClick={() => handleLessonClick(lesson.id)}
-          >
-            <p>{lesson.title}</p>
+      <div className="units-container">
+        {units.map((unit) => (
+          <div key={unit.id} className="unit">
+            <h2>{unit.title}</h2>
+            <div className="lessons-container">
+              {unit.lessons.map((lesson) => (
+                <div
+                  key={lesson.id}
+                  className={`lesson ${isLessonCompleted(lesson.id) ? 'completed' : ''}`}
+                  onClick={() => handleLessonClick(lesson.id)}
+                >
+                  <p>{lesson.title}</p>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
