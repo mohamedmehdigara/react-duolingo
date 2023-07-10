@@ -15,9 +15,9 @@ const App = () => {
         <div className="content-container">
           <Header />
           <Routes>
-            <Route exact path="/" component={LanguageSelection} />
-            <Route path="/lessons" component={Lessons} />
-            <Route path="/profile" component={Profile} />
+            <Route exact path="/" element={<LanguageSelection/>} />
+            <Route path="/lessons" element={<Lessons/>} />
+            <Route path="/profile" element={<Profile/>} />
           </Routes>
         </div>
       </div>
