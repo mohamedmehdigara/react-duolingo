@@ -5,6 +5,7 @@ import LanguageSelection from './pages/LanguageSelection';
 import Lessons from './pages/Lessons';
 import Profile from './pages/Profile';
 import Sidebar from './components/Sidebar';
+import Main from './components/Main';
 import "./App.css";
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
         <Sidebar />
         <div className="content-container">
           <Header />
+          <Main/>
           <Routes>
             <Route exact path="/" element={<LanguageSelection/>} />
             <Route path="/lessons" element={<Lessons/>} />
