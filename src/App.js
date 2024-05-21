@@ -6,6 +6,7 @@ import Lessons from './pages/Lessons';
 import Profile from './pages/Profile';
 import Sidebar from './components/Sidebar';
 import Main from './components/Main';
+import Footer from './components/Footer';
 import "./App.css";
 
 const App = () => {
@@ -22,6 +23,8 @@ const App = () => {
             <Route path="/profile" element={<Profile/>} />
           </Routes>
         </div>
+        <Footer />
+
       </div>
     </Router>
   );

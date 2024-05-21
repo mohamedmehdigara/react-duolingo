@@ -1,19 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Header = () => {
+  const handleNavigation = (path) => {
+    // Implement navigation logic here (e.g., update state or use a library like useHistory)
+    console.log(`Navigate to: ${path}`); // Placeholder for now
+  };
+
   return (
     <header>
       <nav>
         <ul>
           <li>
-            <Link to="/">Language Selection</Link>
+            <button onClick={() => handleNavigation('/')}>Language Selection</button>
           </li>
           <li>
-            <Link to="/lessons">Lessons</Link>
+            <button onClick={() => handleNavigation('/lessons')}>Lessons</button>
           </li>
           <li>
-            <Link to="/profile">Profile</Link>
+            <button onClick={() => handleNavigation('/profile')}>Profile</button>
           </li>
         </ul>
       </nav>
