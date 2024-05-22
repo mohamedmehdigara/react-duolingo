@@ -3,23 +3,20 @@ import PropTypes from 'prop-types'; // For type checking props
 
 const Character = ({ characterData, ...rest }) => {
   // Handle missing data gracefully (outside useState)
-  if (!characterData) return null;
 
-  const [isCompleted, setIsCompleted] = useState(characterData?.completed ?? false);
+  const [isCompleted, setIsCompleted] = useState();
 
   // Optional: Fetch character data asynchronously (outside useEffect)
-  let shouldFetchData = false; // Flag to control fetching (optional)
-  if (/* condition for fetching */) {
-    shouldFetchData = true;
-  }
+  // Implement this logic if data is fetched within the Character component
 
   useEffect(() => {
-    if (shouldFetchData) {
-      // Implement logic to fetch character data if necessary
-    }
-  }, [shouldFetchData]); // Dependency array for useEffect
+    // Implement logic to fetch data if necessary
+  }, []); // Dependency array for useEffect
 
   const renderCharacterContent = () => {
+    // Ensure characterData is defined before accessing its properties
+    if (!characterData) return null;
+
     switch (characterData.type) {
       case 'letter':
         return characterData.symbol;
