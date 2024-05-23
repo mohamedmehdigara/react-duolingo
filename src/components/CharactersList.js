@@ -3,14 +3,23 @@ import Characters from './Characters'; // Import your Characters component
 
 const CharactersList = () => {
   const [characters, setCharacters] = useState([]);
+  const [error, setError] = useState(null); // State for error handling
 
-  // Fetch character data (replace with your actual data fetching logic)
+  // Fetch character data (replace with your actual API endpoint)
   useEffect(() => {
     const fetchCharacters = async () => {
-      // Replace with your API call or data source access
-      const response = await fetch('https://your-api.com/characters');
-      const data = await response.json();
-      setCharacters(data);
+      try {
+        const response = await fetch('YOUR_ACTUAL_API_ENDPOINT'); // Replace with your actual URL
+
+        if (!response.ok) {
+          throw new Error(`API request failed with status ${response.status}`);
+        }
+
+        const data = await response.json();
+        setCharacters(data);
+      } catch (error) {
+        setError(error);
+      }
     };
 
     fetchCharacters();
@@ -18,9 +27,13 @@ const CharactersList = () => {
 
   return (
     <div className="characters-list">
-      {characters.map((characterData) => (
-        <Characters key={characterData.id} characterData={characterData} />
-      ))}
+      {error ? (
+        <p>Error fetching characters: {error.message}</p>
+      ) : (
+        characters.map((characterData) => (
+          <Characters key={characterData.id} characterData={characterData} />
+        ))
+      )}
     </div>
   );
 };
