@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'; // For type checking props
 
-const Character = ({ characterData, ...rest }) => {
+const Characters = ({ characterData, ...rest }) => {
   // Handle missing data gracefully (outside useState)
 
   const [isCompleted, setIsCompleted] = useState();
@@ -29,7 +29,7 @@ const Character = ({ characterData, ...rest }) => {
 
   return (
     <div
-      className={`character ${isCompleted ? 'completed' : ''}`}
+      className={`characters ${isCompleted ? 'completed' : ''}`}
       style={{ width: rest.size || 24, height: rest.size || 24, borderRadius: rest.size / 2 || 12, backgroundColor: rest.color || '#333' }}
       onClick={() => { /* Handle character click (optional) */ }}
     >
@@ -38,7 +38,7 @@ const Character = ({ characterData, ...rest }) => {
   );
 };
 
-Character.propTypes = {
+Characters.propTypes = {
   characterData: PropTypes.shape({
     id: PropTypes.string.isRequired,
     type: PropTypes.oneOf(['letter', 'image']),
@@ -52,4 +52,4 @@ Character.propTypes = {
   color: PropTypes.string,
 };
 
-export default Character;
+export default Characters;

@@ -7,7 +7,9 @@ import Profile from './pages/Profile';
 import Sidebar from './components/Sidebar';
 import Main from './components/Main';
 import Footer from './components/Footer';
-import Characters from './components/Characters';
+import Characters from './components/Characters'; // Existing Characters component
+import CharactersList from './components/CharactersList'; // New CharactersList component
+
 import "./App.css";
 
 const App = () => {
@@ -17,17 +19,17 @@ const App = () => {
         <Sidebar />
         <div className="content-container">
           <Header />
-          <Main/>
+          <Main />
           <Routes>
-            <Route exact path="/" element={<LanguageSelection/>} />
-            <Route path="/lessons" element={<Lessons/>} />
-            <Route path="/profile" element={<Profile/>} />
-            <Route path="/Characters" element={<Characters/>} />
+            <Route exact path="/" element={<LanguageSelection />} />
+            <Route path="/lessons" element={<Lessons />} />
+            <Route path="/profile" element={<Profile />} />
 
+            {/* Update for Characters route */}
+            <Route path="/Characters" element={<CharactersList />} />
           </Routes>
+          <Footer />
         </div>
-        <Footer />
-
       </div>
     </Router>
   );
